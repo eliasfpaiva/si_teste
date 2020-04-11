@@ -1,4 +1,4 @@
-class AreaConhecimento{
+class Curso{
   int id;
   String nome;
 }

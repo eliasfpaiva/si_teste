@@ -1,8 +1,10 @@
+import 'package:si_teste/models/Questao.dart';
+
 import 'Aluno.dart';
-import 'Opcao.dart';
 
 class Respostas {
   Aluno aluno;
-  bool acertou;
-  Opcao opcao;
+  String respostaDada;
+  Questao questao;
+  DateTime data;
 }
