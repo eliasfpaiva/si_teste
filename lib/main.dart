@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:si_teste/views/views/login.dart';
-import 'package:si_teste/views/views/principal.dart';
+import 'package:si_teste/views/views/mainScreen.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 void main() => runApp(MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => MyHomePage(),
         "/Login": (context) => Login(),
-        "/Login/Principal": (context) => Principal()
+        "/Login/Principal": (context) => MainScreen()
       },
     );
   }
@@ -45,7 +45,7 @@ class MyHomePage extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("lib/imagens/logo.png"),
+              image: AssetImage("lib/assets/PuQuizz_Icon.png"),
               fit: BoxFit.none,
             )
           ),
