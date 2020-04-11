@@ -34,21 +34,17 @@ class MyHomePage extends StatelessWidget {
           gradientBackground: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
-            colors:[
-              Colors.blue,
-              Colors.red
-            ],
+            colors: [Colors.blue, Colors.red],
           ),
           navigateAfterSeconds: Login(),
           loaderColor: Colors.transparent,
         ),
         Container(
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("lib/imagens/logo.png"),
-              fit: BoxFit.none,
-            )
-          ),
+              image: DecorationImage(
+            image: AssetImage("lib/imagens/logo.png"),
+            fit: BoxFit.none,
+          )),
         ),
       ],
     );
