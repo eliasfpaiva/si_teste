@@ -8,10 +8,13 @@ class UserView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
+      theme: ThemeData( //TODO: Substituir fontes e styles
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
+        appBar: AppBar( //TODO: substituir essa AppBar pelo esqueleto 
+          title:const Text('Usuário'),
+        ),
         body: Center(
           child: FutureBuilder<Aluno>(
             future: futureAluno,
