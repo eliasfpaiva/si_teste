@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:si_teste/views/views/login.dart';
+import 'package:si_teste/views/views/principal.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,59 +11,42 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'PuQuizz',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      debugShowCheckedModeBanner: false,
-      home: MyHomePage(title: 'PuQuizz'),
+      routes: {
+        "/": (context) => MyHomePage(),
+        "/Login": (context) => Login(),
+        "/Login/Principal": (context) => Principal()
+      },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Clique no botão + para aumentar o número:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+    return Stack(
+      children: <Widget>[
+        SplashScreen(
+          seconds: 5,
+          gradientBackground: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [Colors.blue, Colors.red],
+          ),
+          navigateAfterSeconds: Login(),
+          loaderColor: Colors.transparent,
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+            image: AssetImage("lib/imagens/logo.png"),
+            fit: BoxFit.none,
+          )),
+        ),
+      ],
     );
   }
 }
