@@ -1,5 +1,5 @@
 import 'Curso.dart';
-import 'Avatar.dart';
+import 'Avatar.dart'; //TODO: Decidir como o Avatar virá
 
 class Aluno{
   int matricula;

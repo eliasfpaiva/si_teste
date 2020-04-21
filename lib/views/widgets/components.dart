@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:si_teste/views/user.dart';
+import 'package:si_teste/views/ranking.dart';
 class Components {
 
   static Widget _drawer;
 
   static Widget getDrawer(context){
-//    if(_drawer == null) {
     if(true) {
       _drawer = Drawer(
         child: ListView(
@@ -25,17 +25,21 @@ class Components {
               textAlign: TextAlign.center,
               ),
               onTap: () {
-                //Chamada da tela
-                Navigator.pop(context);
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => UserView()),
+              );
               },
             ),
             ListTile(
-              title: Text('Hanking',
+              title: Text('Ranking',
                 textAlign: TextAlign.center,
               ),
               onTap: () {
-                //Chamada da tela
-                Navigator.pop(context);
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => RankingPage()),
+              );
               },
             ),
             ListTile(

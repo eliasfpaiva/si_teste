@@ -3,8 +3,14 @@ import 'package:si_teste/controllers/user.dart';
 import 'package:si_teste/models/Aluno.dart';
 
 
-class UserView extends StatelessWidget {
+class UserView extends StatefulWidget {
+  @override
+  _UserViewState createState() => _UserViewState();
+}
+
+class _UserViewState extends State<UserView> {
   Future<Aluno> futureAluno = fetchAluno();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,5 +46,4 @@ class UserView extends StatelessWidget {
       ),
     );
   }
-
 }
