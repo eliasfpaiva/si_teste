@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:si_teste/views/views/login.dart';
-import 'package:si_teste/views/views/mainScreen.dart';
+import 'package:si_teste/views/views/tAssuntos.dart';
+import 'package:si_teste/views/views/tDisciplinas.dart';
+import 'package:si_teste/views/views/tUnidades.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 void main() => runApp(MyApp());
@@ -18,7 +20,9 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => MyHomePage(),
         "/Login": (context) => Login(),
-        "/Login/Principal": (context) => MainScreen()
+        "/Login/Principal": (context) => TDisciplinas(),
+        "/Login/Principal/Unidades": (context) => TUnidades(),
+        "/Login/Principal/Unidades/Assuntos": (context) => TAssuntos()
       },
     );
   }

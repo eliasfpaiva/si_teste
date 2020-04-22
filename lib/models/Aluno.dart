@@ -1,5 +1,5 @@
-import 'Curso.dart';
 import 'Avatar.dart';
+import 'Curso.dart';
 
 class Aluno{
   int matricula;

@@ -30,7 +30,7 @@ class Components {
               },
             ),
             ListTile(
-              title: Text('Hanking',
+              title: Text('Ranking',
                 textAlign: TextAlign.center,
               ),
               onTap: () {
@@ -47,6 +47,15 @@ class Components {
                 Navigator.pop(context);
               },
             ),
+            ListTile(
+              title: Text('Logout',
+                textAlign: TextAlign.center,
+              ),
+              onTap: () {
+                //Chamada da tela
+                Navigator.pushNamedAndRemoveUntil(context, "/Login", (route) => false);
+              },
+            ),
           ],
         ),
       );
@@ -56,7 +65,7 @@ class Components {
 
   static Widget getAppBar(tela){
     return AppBar(
-      title: Text('PuQuizz - $tela'),
+      title: Text('$tela'),
     );
   }
 
