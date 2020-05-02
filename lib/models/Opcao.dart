@@ -1,16 +1,18 @@
-class Disciplina {
+class Opcao{
   int id;
-  String nome;
+  String texto;
 
-  Disciplina.fromJson(Map<String, dynamic> json){
+  Opcao({this.id, this.texto});
+
+  Opcao.fromJson(Map<String, dynamic> json){
     id = json['id'];
-    nome = json['nome'];
+    texto = json['nome'];
   }
 
   Map<String, dynamic> toJson(){
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
-    data['nome'] = this.nome;
+    data['texto'] = this.texto;
 
     return data;
   }
