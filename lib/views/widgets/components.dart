@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:si_teste/views/user.dart';
 import 'package:si_teste/views/ranking.dart';
+import 'package:si_teste/views/MaterialApoio.dart';
 class Components {
 
   static Widget _drawer;
@@ -47,8 +48,10 @@ class Components {
                 textAlign: TextAlign.center,
               ),
               onTap: () {
-                //Chamada da tela
-                Navigator.pop(context);
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MaterialPage()),
+              );
               },
             ),
           ],
