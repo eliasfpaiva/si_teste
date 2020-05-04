@@ -9,7 +9,7 @@ class TRanking extends StatelessWidget {
   teste() {
     var list = [{'nome': "Gabriela", 'curso': "Sistemas de Informação", 'acertos':"45", 'erros':"20", 'percentual':"50"}, {'nome': "Júnior", 'curso': "Sistemas de Informação", 'acertos':"45", 'erros':"0", 'percentual':"100"}];
     var i = 0;
-    for (var item in list) {
+    for (var _ in list) {
       list[i]['indice'] = i.toString();
       i++;
     }

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:si_teste/models/questao.dart';
-
+import 'package:si_teste/models/Questao.dart';
 
 class ResultDialog {
   static Future show(
     BuildContext context, {
-    @required Question question,
+    @required Questao question,
     @required bool correct,
     @required Function onNext,
   }) {

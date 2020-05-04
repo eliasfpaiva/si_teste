@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:si_teste/controllers/MaterialApoio.dart';
-import 'package:si_teste/models/MaterialApoio.dart';
 
 class TMaterial extends StatelessWidget {
   @override

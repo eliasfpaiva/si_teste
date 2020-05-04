@@ -6,12 +6,12 @@ import 'package:si_teste/views/widgets/finish_dialog.dart';
 import 'package:si_teste/views/widgets/result_dialog.dart';
 import 'package:si_teste/controllers/quiz_controller.dart';
 
-class QuizView extends StatefulWidget {
+class TQuiz extends StatefulWidget {
   @override
-  _QuizViewState createState() => _QuizViewState();
+  _TQuizState createState() => _TQuizState();
 }
 
-class _QuizViewState extends State<QuizView> {
+class _TQuizState extends State<TQuiz> {
   final _controller = QuizController();
   List<Widget> _scoreKeeper = [];
 
@@ -73,6 +73,7 @@ class _QuizViewState extends State<QuizView> {
       ],
     );
   }
+
   _buildQuestion(String question) {
     return Expanded(
       flex: 3,
