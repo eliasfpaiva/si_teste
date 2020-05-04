@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:si_teste/controllers/MaterialApoio.dart';
 import 'package:si_teste/models/MaterialApoio.dart';
 
-class MaterialPage extends StatelessWidget {
+class TMaterial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

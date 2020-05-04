@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class RankingPage extends StatelessWidget {
+class TRanking extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: AppBar(title: Text("Ranking")), body: teste());

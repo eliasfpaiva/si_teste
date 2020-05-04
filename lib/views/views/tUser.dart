@@ -3,21 +3,17 @@ import 'package:si_teste/controllers/user.dart';
 import 'package:si_teste/models/Aluno.dart';
 
 
-class UserView extends StatefulWidget {
+class TUser extends StatefulWidget {
   @override
-  _UserViewState createState() => _UserViewState();
+  _TUserState createState() => _TUserState();
 }
 
-class _UserViewState extends State<UserView> {
+class _TUserState extends State<TUser> {
   Future<Aluno> futureAluno = fetchAluno();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData( //TODO: Substituir fontes e styles
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar( //TODO: substituir essa AppBar pelo esqueleto 
           title:const Text('Usuário'),
         ),
@@ -43,7 +39,6 @@ class _UserViewState extends State<UserView> {
             },
           ),
         ),
-      ),
-    );
+      );
   }
 }

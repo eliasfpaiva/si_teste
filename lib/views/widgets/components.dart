@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:si_teste/views/user.dart';
-import 'package:si_teste/views/ranking.dart';
-import 'package:si_teste/views/MaterialApoio.dart';
+import 'package:si_teste/views/views/tUser.dart';
+import 'package:si_teste/views/views/tRanking.dart';
+import 'package:si_teste/views/views/tMaterialApoio.dart';
 class Components {
 
   static Widget _drawer;
@@ -28,7 +28,7 @@ class Components {
               onTap: () {
                 Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => UserView()),
+                MaterialPageRoute(builder: (context) => TUser()),
               );
               },
             ),
@@ -39,7 +39,7 @@ class Components {
               onTap: () {
                 Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => RankingPage()),
+                MaterialPageRoute(builder: (context) => TRanking()),
               );
               },
             ),
@@ -50,7 +50,7 @@ class Components {
               onTap: () {
                 Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MaterialPage()),
+                MaterialPageRoute(builder: (context) => TMaterial()),
               );
               },
             ),

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:si_teste/views/views/login.dart';
+import 'package:si_teste/views/views/tLogin.dart';
 import 'package:si_teste/views/views/tAssuntos.dart';
 import 'package:si_teste/views/views/tDisciplinas.dart';
 import 'package:si_teste/views/views/tUnidades.dart';
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         "/": (context) => MyHomePage(),
-        "/Login": (context) => Login(),
+        "/Login": (context) => TLogin(),
         "/Login/Principal": (context) => TDisciplinas(),
         "/Login/Principal/Unidades": (context) => TUnidades(),
         "/Login/Principal/Unidades/Assuntos": (context) => TAssuntos()
@@ -40,7 +40,7 @@ class MyHomePage extends StatelessWidget {
             end: Alignment.bottomLeft,
             colors: [Colors.blue, Colors.red],
           ),
-          navigateAfterSeconds: Login(),
+          navigateAfterSeconds: TLogin(),
           loaderColor: Colors.transparent,
         ),
         Container(

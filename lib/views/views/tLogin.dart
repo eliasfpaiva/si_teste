@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatefulWidget {
+class TLogin extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _TLoginState createState() => _TLoginState();
 }
 
-class _LoginState extends State<Login> {
+class _TLoginState extends State<TLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
