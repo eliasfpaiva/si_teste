@@ -25,7 +25,7 @@ class _TUserState extends State<TUser> {
                 return new Column(
                     children: <Widget>[
                       Text("Nome: " + snapshot.data.nome),
-                      Image.network(snapshot.data.avatar),
+//                      Image.network(snapshot.data.avatar),
                       Text("Disciplina: " + snapshot.data.curso.nome),
                       Text("Matricula: " + snapshot.data.matricula.toString())
 

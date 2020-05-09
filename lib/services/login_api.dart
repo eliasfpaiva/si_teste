@@ -26,6 +26,6 @@ class LoginApi {
     print("message $mensagem");
     print("token $token");
 
-    return true;
+    return mapResponse["authenticated"];
   }
 }

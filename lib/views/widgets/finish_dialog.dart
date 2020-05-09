@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:share/share.dart';
 
 
@@ -85,7 +84,7 @@ class FinishDialog {
             FlatButton(
               child: const Text('SAIR'),
               onPressed: () {
-                SystemNavigator.pop();
+                Navigator.popUntil(context, ModalRoute.withName("/Login/Principal/Unidades/Assuntos"));
               },
               color: Colors.deepPurple,
             )

@@ -1,3 +1,5 @@
+import 'package:si_teste/models/Curso.dart';
+
 import 'Avatar.dart';
 
 class Aluno {
@@ -7,6 +9,7 @@ class Aluno {
   Curso curso;
 
   Aluno ({this.matricula,this.nome,this.avatar,this.curso});
+
   factory Aluno.fromJson(Map<String, dynamic> json) {
     return Aluno(
       matricula: int.parse(json['matricula']) ,
@@ -14,11 +17,10 @@ class Aluno {
     );
   }
 
-  Aluno.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    matricula = json['matricula'];
-    nome = json['nome'];
-  }
+//  Aluno.fromJson(Map<String, dynamic> json) {
+//    matricula = json['matricula'];
+//    nome = json['nome'];
+//  }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
