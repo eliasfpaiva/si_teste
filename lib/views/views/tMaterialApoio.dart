@@ -42,7 +42,7 @@ class TMaterial extends StatelessWidget {
             children: <Widget>[
               Container(
                 padding: EdgeInsets.all(2),
-                child: Image.asset('assets/images/iconBook.png'),
+                child: Image.asset('lib/assets/iconBook.png'),
                 width: 60.0,
                 height: 60.0,
               ),
@@ -57,7 +57,6 @@ class TMaterial extends StatelessWidget {
                   fontSize: 20, color: Colors.black38),
                   textAlign: TextAlign.left,
                 ),
-                
               )
             ]
           ),
