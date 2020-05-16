@@ -67,7 +67,7 @@ class TLogin extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            new Text(
+            Text(
               'PuQuizz',
               style: new TextStyle(fontSize: 35.0, color: Colors.white),
             )
