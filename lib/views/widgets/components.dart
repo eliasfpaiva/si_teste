@@ -60,5 +60,4 @@ class Components {
       title: _getDrawerText('$tela', Colors.white),
     );
   }
-
 }

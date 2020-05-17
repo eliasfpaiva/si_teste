@@ -19,26 +19,31 @@ class _TDisciplinasState extends State<TDisciplinas> {
       drawer: Components.getDrawer(context),
       appBar: Components.getAppBar('Disciplinas'),
       body: FutureBuilder<List<Disciplina>>(
-          future: disciplinas,
-          builder: (context, response){
-            if(response.hasData){
-              return ListView.builder(
-                  itemCount: response.data.length,
-                  itemBuilder: (BuildContext context, int index){
-                    return CupertinoButton(
-                        child: Text(response.data[index].nome),
-                        onPressed : () => Navigator.pushNamed(context, "/Login/Principal/Unidades"),
-                    );
-                  },
-              );
-            }else if(response.hasError){
-              return Text("${response.error}");
-            }
-            return Center(
-              child: CircularProgressIndicator(),
+        future: disciplinas,
+        builder: (context, response){
+          if(response.hasData){
+            return ListView.builder(
+              itemCount: response.data.length,
+              itemBuilder: (BuildContext context, int index){
+                return MaterialButton(
+                  child: Text(response.data[index].nome, textAlign: TextAlign.center, maxLines: 2),
+                  onPressed : () => Navigator.pushNamed(context, "/Login/Principal/Unidades"),
+                  shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(90)),
+                  color: Color(0xFF7f39fb),
+                  textColor: Colors.white,
+//                  padding: EdgeInsets.all(15),
+//                  height: 60,
+                );
+              },
             );
-          },
-        ),
+          }else if(response.hasError){
+            return Text("${response.error}");
+          }
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      ),
     );
   }
 }

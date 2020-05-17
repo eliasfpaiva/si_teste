@@ -11,20 +11,20 @@ class LoginApi {
     Map params = {"username": user, "senha": password, "email": user};
 
     var _body = json.encode(params);
-    print("json enviado : $_body");
+//    print("json enviado : $_body");
 
     var response = await http.post(url, headers: header, body: _body);
-
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
+//
+//    print('Response status: ${response.statusCode}');
+//    print('Response body: ${response.body}');
 
     Map mapResponse = json.decode(response.body);
-
-    String mensagem = mapResponse["message"];
-    String token = mapResponse["token"];
-
-    print("message $mensagem");
-    print("token $token");
+//
+//    String mensagem = mapResponse["message"];
+//    String token = mapResponse["token"];
+//
+//    print("message $mensagem");
+//    print("token $token");
 
     return mapResponse["authenticated"];
   }
