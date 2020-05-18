@@ -5,9 +5,10 @@ class Components {
   static Widget _drawer;
 
   static Widget getDrawer(context){
+//    if(true) {
     if(_drawer == null) {
       _drawer = Drawer(
-        child: ListView(
+        child: Column(
           children: <Widget>[
             DrawerHeader(
               child: Center(
@@ -22,9 +23,14 @@ class Components {
                 borderRadius: BorderRadius.only(bottomRight: Radius.circular(90)),
               ),
             ),
-            _getListTile(context, 'Perfil', '/Login/Perfil', Icons.person),
-            _getListTile(context, 'Ranking', '/Login/Ranking', Icons.list),
-            Divider(),
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  _getListTile(context, 'Perfil', '/Login/Perfil', Icons.person),
+                  _getListTile(context, 'Ranking', '/Login/Ranking', Icons.list),
+                ],
+              ),
+            ),
             ListTile(
               title: _getDrawerText('Logout', Colors.black),
               leading: Icon(Icons.power_settings_new, color: Colors.black,),
