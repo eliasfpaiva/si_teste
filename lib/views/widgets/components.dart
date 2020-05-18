@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class Components {
 
   static Widget _drawer;
-
   static Widget getDrawer(context){
 //    if(true) {
     if(_drawer == null) {

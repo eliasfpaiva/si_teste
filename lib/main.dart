@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:si_teste/Utils/valores.dart';
 import 'package:si_teste/views/views/tLogin.dart';
 import 'package:si_teste/views/views/tAssuntos.dart';
 import 'package:si_teste/views/views/tDisciplinas.dart';
+import 'package:si_teste/views/views/tQuiz.dart';
 import 'package:si_teste/views/views/tRanking.dart';
 import 'package:si_teste/views/views/tUnidades.dart';
 import 'package:si_teste/views/views/tUser.dart';
@@ -19,13 +21,14 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF4c2a88),
       ),
       routes: {
-        "/": (context) => MyHomePage(),
-        "/Login": (context) => TLogin(),
-        "/Login/Perfil": (context) => TUser(),
-        "/Login/Ranking": (context) => TRanking(),
-        "/Login/Principal": (context) => TDisciplinas(),
-        "/Login/Principal/Unidades": (context) => TUnidades(),
-        "/Login/Principal/Unidades/Assuntos": (context) => TAssuntos()
+        Valores.rotaRaiz: (context) => MyHomePage(),
+        Valores.rotaLogin: (context) => TLogin(),
+        Valores.rotaPerfil: (context) => TUser(),
+        Valores.rotaRanking: (context) => TRanking(),
+        Valores.rotaPerfil: (context) => TDisciplinas(),
+        Valores.rotaUnidades: (context) => TUnidades(),
+        Valores.rotaAssuntos: (context) => TAssuntos(),
+        Valores.rotaQuizz: (context) => TQuiz(),
       },
     );
   }
