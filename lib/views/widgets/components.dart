@@ -5,8 +5,8 @@ class Components {
 
   static Widget _drawer;
   static Widget getDrawer(context){
-//    if(true) {
-    if(_drawer == null) {
+    if(true) {
+//    if(_drawer == null) {
       _drawer = Drawer(
         child: Column(
           children: <Widget>[
