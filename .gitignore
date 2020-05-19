@@ -79,3 +79,6 @@
 /.gradle/5.2.1/fileChanges/last-build.bin
 /pubspec.lock
 /.flutter-plugins-dependencies
+/ios/Flutter/Flutter.podspec
+/ios/Podfile
+/ios/Podfile.lock
