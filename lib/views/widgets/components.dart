@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:si_teste/Utils/valores.dart';
 class Components {
 
   static Widget _drawer;
@@ -25,8 +26,8 @@ class Components {
             Expanded(
               child: ListView(
                 children: <Widget>[
-                  _getListTile(context, 'Perfil', '/Login/Perfil', Icons.person),
-                  _getListTile(context, 'Ranking', '/Login/Ranking', Icons.list),
+                  _getListTile(context, 'Perfil', Valores.rotaPerfil, Icons.person),
+                  _getListTile(context, 'Ranking', Valores.rotaRanking, Icons.list),
                 ],
               ),
             ),

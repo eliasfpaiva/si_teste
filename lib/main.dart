@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         Valores.rotaLogin: (context) => TLogin(),
         Valores.rotaPerfil: (context) => TUser(),
         Valores.rotaRanking: (context) => TRanking(),
-        Valores.rotaPerfil: (context) => TDisciplinas(),
+        Valores.rotaPrincipal: (context) => TDisciplinas(),
         Valores.rotaUnidades: (context) => TUnidades(),
         Valores.rotaAssuntos: (context) => TAssuntos(),
         Valores.rotaQuizz: (context) => TQuiz(),
