@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:si_teste/Utils/valores.dart';
 import 'package:si_teste/models/Assunto.dart';
 import 'package:si_teste/services/apiClient.dart';
-import 'package:si_teste/views/views/tQuiz.dart';
 import 'package:si_teste/views/widgets/components.dart';
 
 class TAssuntos extends StatefulWidget {
@@ -17,6 +16,11 @@ class _TAssuntosState extends State<TAssuntos> {
   abrirQuizz(int id) {
     Valores.idAssuntoSelecionado = id;
     Navigator.pushNamed(context, Valores.rotaQuizz);
+  }
+
+  abrirMateriais(int id) {
+    Valores.idAssuntoSelecionado = id;
+    Navigator.pushNamed(context, Valores.rotaMateriais);
   }
 
   @override
@@ -53,33 +57,52 @@ class _TAssuntosState extends State<TAssuntos> {
     return Container(
       padding: EdgeInsets.only(left: 5, top: 3, right: 5, bottom: 3),
       height: 50,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Expanded(child: Text(response.data[index].nome)),
-          MaterialButton(
-            child: Icon(Icons.search),
-            onPressed: () {},
-          ),
-          MaterialButton(
-            child: Icon(Icons.live_help),
-            onPressed:() {} ,
-          ),
-        ],
+      child: Container(
+        decoration: buildBoxDecoration(Valores.getCor(index)),
+        padding: EdgeInsets.only(left: 5, top: 3, right: 5, bottom: 3),
+        height: 50,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Expanded(child: Text(response.data[index].nome, textAlign: TextAlign.left, maxLines: 2, style: TextStyle(fontSize: 15, color: Colors.black),)),
+            buildButton(response, index, Image.asset('lib/assets/books_24.png'), false, response.data[index].id),
+            VerticalDivider(width: 5),
+            buildButton(response, index, Icon(Icons.live_help), true, response.data[index].id),
+          ],
+        ),
       ),
     );
+  }
 
-//    return Container(
-//      padding: EdgeInsets.only(left: 5, top: 3, right: 5, bottom: 3),
-//      height: 50,
-//      child: MaterialButton(
-//        child: Text(response.data[index].nome, textAlign: TextAlign.center, maxLines: 2, style: TextStyle(fontSize: 15),),
-//        onPressed : () => abrirQuizz(response.data[index].id),
-//        shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(10)),
-//        color: Color(Valores.getCor(index)),
-//        textColor: Colors.white,
-//        padding: EdgeInsets.all(2),
-//      ),
-//    );
+  Widget buildButton(AsyncSnapshot<List<Assunto>> response, int index, Widget icone, bool quizz, int id) {
+
+    abrirTela(){
+      if(quizz)
+        abrirQuizz(id);
+      else
+        abrirMateriais(id);
+    }
+
+    return Container(
+      decoration: buildBoxDecoration(0xFF7f39fb),
+      child: MaterialButton(
+        child: icone,
+        onPressed: () => abrirTela(),
+        shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        textColor: Colors.black,
+        minWidth: 10,
+        padding: EdgeInsets.zero,
+      ),
+    );
+  }
+
+  BoxDecoration buildBoxDecoration(cor) {
+    return BoxDecoration(
+      border: Border.all(
+        color: Color(0xFF4c2a88),
+        width: 1,
+      ),
+      borderRadius: BorderRadius.circular(10),
+    );
   }
 }

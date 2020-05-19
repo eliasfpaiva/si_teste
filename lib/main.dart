@@ -4,6 +4,7 @@ import 'package:si_teste/Utils/valores.dart';
 import 'package:si_teste/views/views/tLogin.dart';
 import 'package:si_teste/views/views/tAssuntos.dart';
 import 'package:si_teste/views/views/tDisciplinas.dart';
+import 'package:si_teste/views/views/tMaterialApoio.dart';
 import 'package:si_teste/views/views/tQuiz.dart';
 import 'package:si_teste/views/views/tRanking.dart';
 import 'package:si_teste/views/views/tUnidades.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         Valores.rotaUnidades: (context) => TUnidades(),
         Valores.rotaAssuntos: (context) => TAssuntos(),
         Valores.rotaQuizz: (context) => TQuiz(),
+        Valores.rotaMateriais: (context) => TMaterial(),
       },
     );
   }

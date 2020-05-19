@@ -7,6 +7,7 @@ class Valores{
   static const rotaUnidades = "/Login/Principal/Unidades";
   static const rotaAssuntos = "/Login/Principal/Unidades/Assuntos";
   static const rotaQuizz = "/Login/Principal/Unidades/Assuntos/Quizz";
+  static const rotaMateriais = "/Login/Principal/Unidades/Assuntos/Materiais";
 
   static var idDisciplinaSelecionada;
   static var idUnidadeEnsionoSelecionada;
