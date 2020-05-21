@@ -13,6 +13,6 @@ class Valores{
   static var idUnidadeEnsionoSelecionada;
   static var idAssuntoSelecionado;
 
-  static const _cores = [0xFF7B68EE, 0xFF9370DB, 0xFF8A2BE2, 0xFF9400D3, 0xFF9932CC, 0xFFBA55D3, 0xFFA020F0, 0xFF8B008B, 0xFFFF00FF, 0xFFEE82EE, 0xFFDA70D6, 0xFFDDA0DD];//0xFF4B0082, ];
+  static const _cores = [0xFF4c2a88, 0xFF7f39fb];
   static getCor(indice){ return _cores[indice % _cores.length]; }
 }

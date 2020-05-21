@@ -35,13 +35,12 @@ class _TUnidadesState extends State<TUnidades> {
                   return Container(
                     padding: EdgeInsets.only(left: 5, top: 3, right: 5, bottom: 3),
                     height: 50,
+                    decoration: Components.getbuildBoxDecorationBotoes(Valores.getCor(0)),
                     child: MaterialButton(
                       child: Text(response.data[index].nome, textAlign: TextAlign.center, maxLines: 2, style: TextStyle(fontSize: 15),),
                       onPressed : () => abrirAssuntos(response.data[index].id),
                       shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(10)),
-//                      color: Color(0xFF7f39fb),
-                      color: Color(Valores.getCor(index)),
-                      textColor: Colors.white,
+                      textColor: Colors.black,
                       padding: EdgeInsets.all(2),
                     ),
                   );

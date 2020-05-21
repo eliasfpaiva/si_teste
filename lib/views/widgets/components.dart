@@ -66,4 +66,14 @@ class Components {
       title: _getDrawerText('$tela', Colors.white),
     );
   }
+
+  static BoxDecoration getbuildBoxDecorationBotoes(cor) {
+    return BoxDecoration(
+      border: Border.all(
+        color: Color(0xFF4c2a88),
+        width: 1,
+      ),
+      borderRadius: BorderRadius.circular(10),
+    );
+  }
 }

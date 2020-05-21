@@ -58,7 +58,7 @@ class _TAssuntosState extends State<TAssuntos> {
       padding: EdgeInsets.only(left: 5, top: 3, right: 5, bottom: 3),
       height: 50,
       child: Container(
-        decoration: buildBoxDecoration(Valores.getCor(index)),
+        decoration: Components.getbuildBoxDecorationBotoes(Valores.getCor(0)),
         padding: EdgeInsets.only(left: 5, top: 3, right: 5, bottom: 3),
         height: 50,
         child: Row(
@@ -84,25 +84,13 @@ class _TAssuntosState extends State<TAssuntos> {
     }
 
     return Container(
-      decoration: buildBoxDecoration(0xFF7f39fb),
       child: MaterialButton(
         child: icone,
         onPressed: () => abrirTela(),
-        shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(10)),
         textColor: Colors.black,
         minWidth: 10,
         padding: EdgeInsets.zero,
       ),
-    );
-  }
-
-  BoxDecoration buildBoxDecoration(cor) {
-    return BoxDecoration(
-      border: Border.all(
-        color: Color(0xFF4c2a88),
-        width: 1,
-      ),
-      borderRadius: BorderRadius.circular(10),
     );
   }
 }
