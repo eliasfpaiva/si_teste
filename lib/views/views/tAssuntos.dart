@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:si_teste/Utils/valores.dart';
 import 'package:si_teste/models/Assunto.dart';
 import 'package:si_teste/services/apiClient.dart';
 import 'package:si_teste/views/widgets/components.dart';
+import 'package:si_teste/views/widgets/drawer.dart';
 
 class TAssuntos extends StatefulWidget {
   @override
@@ -27,7 +29,7 @@ class _TAssuntosState extends State<TAssuntos> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      drawer: Components.getDrawer(context),
+      drawer: Provider.of<DrawerPuquizz>(context),
       appBar: Components.getAppBar('Assuntos'),
       body: Container(
         padding: EdgeInsets.all(5),
@@ -56,20 +58,17 @@ class _TAssuntosState extends State<TAssuntos> {
   Widget buildCardAssunto(AsyncSnapshot<List<Assunto>> response, int index) {
     return Container(
       padding: EdgeInsets.only(left: 5, top: 3, right: 5, bottom: 3),
+      margin: EdgeInsets.only(left: 5, top: 3, right: 5, bottom: 3),
       height: 50,
-      child: Container(
-        decoration: Components.getbuildBoxDecorationBotoes(Valores.getCor(0)),
-        padding: EdgeInsets.only(left: 5, top: 3, right: 5, bottom: 3),
-        height: 50,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Expanded(child: Text(response.data[index].nome, textAlign: TextAlign.left, maxLines: 2, style: TextStyle(fontSize: 15, color: Colors.black),)),
-            buildButton(response, index, Image.asset('lib/assets/books_24.png'), false, response.data[index].id),
-            VerticalDivider(width: 5),
-            buildButton(response, index, Icon(Icons.live_help), true, response.data[index].id),
-          ],
-        ),
+      decoration: Components.getbuildBoxDecorationBotoes(Valores.getCor(0)),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Expanded(child: Text(response.data[index].nome, textAlign: TextAlign.left, maxLines: 2, style: TextStyle(fontSize: 12.5, color: Colors.black),)),
+          buildButton(response, index, Image.asset('lib/assets/books_24.png', semanticLabel: 'Acessar materiais sobre ${response.data[index].nome}',), false, response.data[index].id),
+          VerticalDivider(width: 5, color: Colors.transparent,),
+          buildButton(response, index, Icon(Icons.live_help, semanticLabel: 'Acessar quizz sobre ${response.data[index].nome}',), true, response.data[index].id),
+        ],
       ),
     );
   }
