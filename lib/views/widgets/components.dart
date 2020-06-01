@@ -28,7 +28,7 @@ class Components {
               onTap: () {
                 Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => TUser()),
+                MaterialPageRoute(builder: (context) => TUser(matricula: "599949")), //TODO: Substituir pela matricula vinda do Login
               );
               },
             ),

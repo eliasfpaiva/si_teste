@@ -7,25 +7,25 @@ class Aluno {
   String nome;
   Avatar avatar;
   Curso curso;
-
-  Aluno ({this.matricula,this.nome,this.avatar,this.curso});
+  String acertos;
+  String respostas;
+  Aluno ({this.matricula,this.nome,this.avatar,this.curso,this.acertos,this.respostas});
 
   factory Aluno.fromJson(Map<String, dynamic> json) {
     return Aluno(
-      matricula: int.parse(json['matricula']) ,
+      matricula: (json['id']) ,
       nome: json['nome'],
+      acertos: (json['total_acertos']).toString(),
+      respostas: (json['total_respostas']).toString(),
     );
   }
-
-//  Aluno.fromJson(Map<String, dynamic> json) {
-//    matricula = json['matricula'];
-//    nome = json['nome'];
-//  }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['matricula'] = this.matricula;
     data['nome'] = this.nome;
+    data['total_acertos'] = this.acertos;
+    data['total_respostas'] = this.respostas;
     return data;
   }
 }
