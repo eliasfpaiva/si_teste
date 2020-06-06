@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:si_teste/models/AlunoRanking.dart';
 
 import 'package:si_teste/views/widgets/components.dart';
 
 import 'package:si_teste/services/rankingApi.dart';
+import 'package:si_teste/views/widgets/drawer.dart';
 
 class TRanking extends StatefulWidget {
   @override
@@ -14,10 +16,11 @@ class _TRankingState extends State<TRanking> {
   @override
   @override
   Widget build(BuildContext context) {
+    final _drawer = Provider.of<DrawerPuquizz>(context);
     Future<List> disciplinas = RankingApi.getDados();
 
     return Scaffold(
-      drawer: Components.getDrawer(context),
+      drawer: _drawer,
       appBar: Components.getAppBar('Ranking'),
       body: FutureBuilder<List>(
         future: disciplinas,
@@ -26,7 +29,6 @@ class _TRankingState extends State<TRanking> {
             return ListView.builder(
               itemCount: response.data.length,
               itemBuilder: (BuildContext context, int index) {
-                
                 return Card(
                   color: Color.fromARGB(100, index * 35, 0, 255),
                   child: Container(
@@ -38,11 +40,18 @@ class _TRankingState extends State<TRanking> {
                               width: 80.0,
                               height: 80.0,
                               decoration: new BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: new DecorationImage(
-                                      fit: BoxFit.fill,
-                                      image: new NetworkImage(
-                                          response.data[index]['avatar'])))),
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: NetworkImage(
+                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBspKs3Zm7K6lrbkhczmuEV4Y7eApC1A3O4-s5bKd5eQYlnDS3VQ&s') //TODO: substituir pelo avatar vindo da API
+                                ),
+//                                  image: new DecorationImage(
+//                                      fit: BoxFit.fill,
+//                                      image: new NetworkImage(
+//                                          response.data[index]['avatar'])
+//                                  )
+                              )),
                           Container(
                             padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                             child: Column(
@@ -65,20 +74,26 @@ class _TRankingState extends State<TRanking> {
                                         Text(
                                             "Respostas\n      " +
                                                 (response.data[index]
-                                                        ['respostas'])
+                                                ['respostas'])
                                                     .toString(),
                                             style:
-                                                TextStyle(color: Colors.white)),
+                                            TextStyle(color: Colors.white)),
                                         Text(
                                             "  |  Acertos  |  \n         " +
                                                 (response.data[index]
-                                                        ['acertos'])
+                                                ['acertos'])
                                                     .toString(),
                                             style:
-                                                TextStyle(color: Colors.white)),
-                                        Text("Erros\n   " + (response.data[index]['respostas'] - response.data[index]['acertos'] ).toString(),
+                                            TextStyle(color: Colors.white)),
+                                        Text(
+                                            "Erros\n   " +
+                                                (response.data[index]
+                                                ['respostas'] -
+                                                    response.data[index]
+                                                    ['acertos'])
+                                                    .toString(),
                                             style:
-                                                TextStyle(color: Colors.white))
+                                            TextStyle(color: Colors.white))
                                       ],
                                     )),
                               ],
