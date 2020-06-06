@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:si_teste/Utils/valores.dart';
 import 'package:si_teste/controllers/user.dart';
 import 'package:si_teste/models/Aluno.dart';
+import 'package:si_teste/views/widgets/components.dart';
 
 
 class TUser extends StatefulWidget {
-  final String matricula;
 
-  TUser({Key key, @required this.matricula}) : super(key: key);
+  TUser({Key key}) : super(key: key);
 
   @override
   _TUserState createState() => _TUserState();
 }
 
 class _TUserState extends State<TUser> {
-  Future<Aluno> futureAluno = fetchAluno();
+  Future<Aluno> futureAluno = fetchAluno(Valores.matriculaAlunoLogado);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( //TODO: substituir essa AppBar pelo esqueleto
-        title:const Text('Usuário'),
-      ),
+      appBar: Components.getAppBar('Usuário'),
       body: Center(
           child: FutureBuilder<Aluno>(
             future: futureAluno,

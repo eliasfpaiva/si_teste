@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:si_teste/Utils/valores.dart';
 import 'package:si_teste/services/login_api.dart';
 import 'package:si_teste/views/views/tDisciplinas.dart';
 
@@ -135,13 +136,14 @@ class TLogin extends StatelessWidget {
       return;
     }
 
-    String login = _tLogin.text == "55555" ? "macoratti@yahoo.com" : "errado";
+    String login = Valores.ehAluno(_tLogin.text) ? "macoratti@yahoo.com" : "errado";
     String senha = _tSenha.text == "333" ? "Hw8vup5e@2019" : "errado";
 
     print("Login: $login , Senha: $senha");
 
     var response = await LoginApi.login(login, senha);
     if (response) {
+      Valores.matriculaAlunoLogado = int.parse(_tLogin.text);
       _navegatorHomePage(context);
     }else{
       showDialog(

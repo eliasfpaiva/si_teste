@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'package:si_teste/models/Aluno.dart';
 import 'package:http/http.dart' as http;
 
-Future<Aluno> fetchAluno() async {
+Future<Aluno> fetchAluno(int matricula) async {
   final response =
-      await http.get('https://trabalhocleber.azurewebsites.net/api/Alunos/perfil_aluno?matricula=599949'); //TODO: Mudar matricula conforme matricula inserida no login
+      await http.get('https://trabalhocleber.azurewebsites.net/api/Alunos/perfil_aluno?matricula=$matricula');
 
   if (response.statusCode == 200) {
 
