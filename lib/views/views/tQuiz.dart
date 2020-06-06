@@ -33,6 +33,7 @@ class _TQuizState extends State<TQuiz> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: Text('PuQuizz Questões ( ${_scoreKeeper.length}/${_controller.questionsNumber} )'),
@@ -57,17 +58,20 @@ class _TQuizState extends State<TQuiz> {
         icon: Icons.warning,
       );
 
+    var answers = _controller.getAnswers();
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
 
         _buildQuestion(_controller.getQuestion()),
-        _buildAnswerButton(_controller.getAnswer1()),
-        _buildAnswerButton(_controller.getAnswer2()),
-        _buildAnswerButton(_controller.getAnswer3()),
-        _buildAnswerButton(_controller.getAnswer4()),
-        _buildAnswerButton(_controller.getAnswer5()),
+        _buildAnswerButton(answers[0]),
+        _buildAnswerButton(answers[1]),
+        _buildAnswerButton(answers[2]),
+        _buildAnswerButton(answers[3]),
+        _buildAnswerButton(answers[4]),
+
         const SizedBox(height: 4),
         _buildScoreKeeper(),
       ],
@@ -149,7 +153,6 @@ class _TQuizState extends State<TQuiz> {
 
   _buildScoreKeeper() {
     return Expanded(
-      
       child: Wrap(
         spacing: 2.0,
         runSpacing: 0.0, 

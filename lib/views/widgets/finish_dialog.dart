@@ -7,18 +7,23 @@ class FinishDialog {
     BuildContext context, {
     int hitNumber,
   }) {
+        Future<bool> _onBackPressed() {
+  return null;
+}
     return showDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (context) {
-        return AlertDialog(
+        return WillPopScope(
+    onWillPop: _onBackPressed,
+    child: new  AlertDialog(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(10.0),
             ),
           ),
           title: CircleAvatar(
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.deepPurple[300],
             maxRadius: 35.0,
             child: Icon(
               Icons.favorite,
@@ -89,7 +94,7 @@ class FinishDialog {
               color: Colors.deepPurple,
             )
           ],
-        );
+        ));
       },
     );
   }

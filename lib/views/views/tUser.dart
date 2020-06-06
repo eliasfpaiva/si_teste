@@ -14,7 +14,7 @@ class _TUserState extends State<TUser> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar( //TODO: substituir essa AppBar pelo esqueleto 
+        appBar: AppBar(
           title:const Text('Usuário'),
         ),
         body: Center(
