@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-import 'package:si_teste/models/AlunoRanking.dart';
 
 class RankingApi {
   static Future<List> getDados() async {
