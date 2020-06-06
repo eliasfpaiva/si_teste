@@ -1,5 +1,3 @@
-//import 'package:si_teste/services/questoes_mock_api.dart';
-
 import 'package:si_teste/models/Questao.dart';
 import 'package:si_teste/services/questoes_mock_api.dart';
 
@@ -19,7 +17,7 @@ class QuizController {
     _questionIndex = 0;
     _hitNumber = 0;
     _questionBank = await QuizApi.fetch();
-    print('Number of questions: ${_questionBank.length}');
+    print('Número de questões: ${_questionBank.length}');
     _questionBank.shuffle();
   }
 
@@ -28,29 +26,40 @@ class QuizController {
   }
 
   String getQuestion() {
-    return _questionBank[_questionIndex].question;
+    return _questionBank[_questionIndex].pergunta;
   }
   String getAnswer1() {
-    return _questionBank[_questionIndex].answer0;
+    return _questionBank[_questionIndex].resposta0;
 
   }
   String getAnswer2() {
-    return _questionBank[_questionIndex].answer1;
+    return _questionBank[_questionIndex].resposta1;
   }
     String getAnswer3() {
-    return _questionBank[_questionIndex].answer2;
+    return _questionBank[_questionIndex].resposta2;
   }
 
     String getAnswer4() {
-    return _questionBank[_questionIndex].answer3;
+    return _questionBank[_questionIndex].resposta3;
   }
   
     String getAnswer5() {
-    return _questionBank[_questionIndex].resposta;
+    return _questionBank[_questionIndex].respostaCorreta;
   }
+     List getAnswers(){
+       List listAnswers = new List(5);
+        listAnswers[0]=getAnswer1();
+        listAnswers[1]=getAnswer2();
+        listAnswers[2]=getAnswer3();
+        listAnswers[3]=getAnswer4();
+        listAnswers[4]=getAnswer5();
+        listAnswers.shuffle();
+        return listAnswers;
+     }
+       
 
   bool correctAnswer(String answer) {
-    var correct = _questionBank[_questionIndex].resposta == answer;
+    var correct = _questionBank[_questionIndex].respostaCorreta == answer;
     _hitNumber = hitNumber + (correct ? 1 : 0);
     return correct;
   }

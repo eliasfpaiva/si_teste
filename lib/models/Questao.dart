@@ -1,32 +1,32 @@
 import 'dart:convert';
 
 class Questao {
-  String question;
-  String answer0;
-  String answer1;
-  String answer2;
-  String answer3;
-  String resposta;
+  String pergunta;
+  String resposta0;
+  String resposta1;
+  String resposta2;
+  String resposta3;
+  String respostaCorreta;
 
   Questao({
-    this.question,
-    this.answer0,
-    this.answer1,
-    this.answer2,
-    this.answer3,
-    this.resposta,
+    this.pergunta,
+    this.resposta0,
+    this.resposta1,
+    this.resposta2,
+    this.resposta3,
+    this.respostaCorreta,
   });
 
 
 
   Map<String, dynamic> toMap() {
     return {
-      'question': question,
-      'answer0': answer0,
-      'answer1': answer1,
-      'answer2': answer2,
-      'answer3': answer3,
-      'resposta': resposta,
+      'question': pergunta,
+      'answer0': resposta0,
+      'answer1': resposta1,
+      'answer2': resposta2,
+      'answer3': resposta3,
+      'resposta': respostaCorreta,
     };
   }
 
@@ -34,12 +34,12 @@ class Questao {
     if (map == null) return null;
 
     return Questao(
-      question: map['question'],
-      answer0: map['0'],
-      answer1: map['1'],
-      answer2: map['2'],
-      answer3: map['3'],
-      resposta: map['resposta'],
+      pergunta: map['pergunta'],
+      resposta0: map['0'],
+      resposta1: map['1'],
+      resposta2: map['2'],
+      resposta3: map['3'],
+      respostaCorreta: map['resposta'],
     );
   }
 
