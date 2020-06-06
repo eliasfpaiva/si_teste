@@ -8,7 +8,8 @@ import 'package:si_teste/models/UnidadeEnsino.dart';
 import 'package:si_teste/models/MaterialApoio.dart';
 
 class ApiClient {
-  static String urlApi = 'https://trabalhocleber.azurewebsites.net/api/';
+  static String urlApi = 'https://5e90d9312810f4001648b54f.mockapi.io/puquizz/';
+//  static String urlApi = 'https://trabalhocleber.azurewebsites.net/api/';
 
   static Future<List<Questao>> getListaQuestoes(id) async {
     final response = await http.get('${urlApi}questoes_assunto');

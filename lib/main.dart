@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           Valores.rotaUnidades: (context) => TUnidades(),
           Valores.rotaAssuntos: (context) => TAssuntos(),
           Valores.rotaQuizz: (context) => TQuiz(),
-          Valores.rotaMateriais: (context) => TMaterial(),
+          Valores.rotaMateriais: (context) => TMaterialApoio(),
         },
       )
     );
