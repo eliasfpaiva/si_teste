@@ -11,13 +11,10 @@ class TRanking extends StatefulWidget {
 
 class _TRankingState extends State<TRanking> {
   @override
-  @override
   Widget build(BuildContext context) {
-    final _drawer = Provider.of<DrawerPuquizz>(context);
     Future<List> disciplinas = RankingApi.getDados();
 
     return Scaffold(
-      drawer: _drawer,
       appBar: Components.getAppBar('Ranking'),
       body: FutureBuilder<List>(
         future: disciplinas,
