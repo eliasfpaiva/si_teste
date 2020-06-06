@@ -5,9 +5,10 @@ import 'package:si_teste/models/Assunto.dart';
 import 'package:si_teste/models/Disciplina.dart';
 import 'package:si_teste/models/Questao.dart';
 import 'package:si_teste/models/UnidadeEnsino.dart';
+import 'package:si_teste/models/MaterialApoio.dart';
 
 class ApiClient {
-  static String urlApi = 'https://5e90d9312810f4001648b54f.mockapi.io/puquizz/';
+  static String urlApi = 'https://trabalhocleber.azurewebsites.net/api/';
 
   static Future<List<Questao>> getListaQuestoes(id) async {
     final response = await http.get('${urlApi}questoes_assunto');
@@ -46,6 +47,15 @@ class ApiClient {
       return getDecoded(response).map((x) => Disciplina.fromJson(x)).toList();
     }else{
       throw Exception('Erro ao consultar lista de disciplinas!');
+    }
+  }
+
+  static Future<List<MaterialApoio>> getMateriaisApoio() async {
+    final response = await http.get("https://5ed5441c8769250016e63462.mockapi.io/MaterialApoio");
+    if(response.statusCode == 200){
+      return getDecoded(response).map((x) => MaterialApoio.fromJson(x)).toList();
+    }else{
+      throw Exception('Erro ao consultar lista de Assuntos!');
     }
   }
 
