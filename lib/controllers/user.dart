@@ -7,7 +7,6 @@ Future<Aluno> fetchAluno(int matricula) async {
       await http.get('https://trabalhocleber.azurewebsites.net/api/Alunos/perfil_aluno?matricula=$matricula');
 
   if (response.statusCode == 200) {
-
     return Aluno.fromJson(json.decode(response.body));
   } else {
     throw Exception('Erro ao buscar aluno');

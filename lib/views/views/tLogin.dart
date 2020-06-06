@@ -143,6 +143,7 @@ class TLogin extends StatelessWidget {
 
     var response = await LoginApi.login(login, senha);
     if (response != null) {
+      Valores.matriculaAlunoLogado = int.parse(_tLogin.text);
       _navegatorHomePage(context);
     } else {
       showDialog(
