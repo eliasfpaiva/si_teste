@@ -1,19 +1,138 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:si_teste/views/widgets/components.dart';
+import 'package:si_teste/services/rankingApi.dart';
+import 'package:si_teste/views/widgets/drawer.dart';
 
-class TRanking extends StatelessWidget {
+class TRanking extends StatefulWidget {
+  @override
+  _TRankingState createState() => _TRankingState();
+}
+
+class _TRankingState extends State<TRanking> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text("Ranking")), body: teste());
-  }
+    Future<List> disciplinas = RankingApi.getDados();
 
-  teste() {
+    return Scaffold(
+      appBar: Components.getAppBar('Ranking'),
+      body: FutureBuilder<List>(
+        future: disciplinas,
+        builder: (context, response) {
+          if (response.hasData) {
+            return ListView.builder(
+              itemCount: response.data.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  color: Color.fromARGB(100, index * 35, 0, 255),
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                              width: 80.0,
+                              height: 80.0,
+                              decoration: new BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: NetworkImage(
+                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBspKs3Zm7K6lrbkhczmuEV4Y7eApC1A3O4-s5bKd5eQYlnDS3VQ&s') //TODO: substituir pelo avatar vindo da API
+                                ),
+//                                  image: new DecorationImage(
+//                                      fit: BoxFit.fill,
+//                                      image: new NetworkImage(
+//                                          response.data[index]['avatar'])
+//                                  )
+                              )),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Container(
+                                  child: Text(
+                                    response.data[index]['name'],
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                    textAlign: TextAlign.right,
+                                  ),
+                                ),
+                                Container(
+                                    padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                            "Respostas\n      " +
+                                                (response.data[index]
+                                                ['respostas'])
+                                                    .toString(),
+                                            style:
+                                            TextStyle(color: Colors.white)),
+                                        Text(
+                                            "  |  Acertos  |  \n         " +
+                                                (response.data[index]
+                                                ['acertos'])
+                                                    .toString(),
+                                            style:
+                                            TextStyle(color: Colors.white)),
+                                        Text(
+                                            "Erros\n   " +
+                                                (response.data[index]
+                                                ['respostas'] -
+                                                    response.data[index]
+                                                    ['acertos'])
+                                                    .toString(),
+                                            style:
+                                            TextStyle(color: Colors.white))
+                                      ],
+                                    )),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(7, 0, 0, 0),
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  "#" + (index + 1).toString(),
+                                  style: TextStyle(
+                                      fontSize: 25, color: Colors.white),
+                                )
+                              ],
+                            ),
+                          ),
+                        ]),
+                  ),
+                );
+              },
+            );
+          } else if (response.hasError) {
+            return Text("${response.error}");
+          }
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      ),
+    );
+  }
+}
+
+/*
+  teste() async{
     var list = [{'nome': "Gabriela", 'curso': "Sistemas de Informação", 'acertos':"45", 'erros':"20", 'percentual':"50"}, {'nome': "Júnior", 'curso': "Sistemas de Informação", 'acertos':"45", 'erros':"0", 'percentual':"100"}];
+    var list2 = await RankingApi.getDados();
+    //print(list2);
+   
     var i = 0;
     for (var _ in list) {
       list[i]['indice'] = i.toString();
       i++;
     }
-
     return Container(
       padding: EdgeInsets.all(10.0),
       child: Center(
@@ -93,4 +212,4 @@ class TRanking extends StatelessWidget {
       ),
     );
   }
-}
+}*/

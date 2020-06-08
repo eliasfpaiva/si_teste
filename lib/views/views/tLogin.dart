@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:si_teste/Utils/valores.dart';
 import 'package:si_teste/services/login_api.dart';
 import 'package:si_teste/views/views/tDisciplinas.dart';
 
@@ -23,9 +24,9 @@ class TLogin extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     textFormFieldLogin(),
-                    textFormFieldSenha()],
-                )
-            ),
+                    textFormFieldSenha()
+                  ],
+                )),
             containerButton(context)
           ],
         ));
@@ -81,7 +82,7 @@ class TLogin extends StatelessWidget {
     return TextFormField(
         controller: _tLogin,
         validator: _validateLogin,
-        keyboardType: TextInputType.text,
+        keyboardType: TextInputType.number,
         style: TextStyle(color: Colors.black),
         decoration: InputDecoration(
             labelText: "Matrícula",
@@ -98,10 +99,10 @@ class TLogin extends StatelessWidget {
         controller: _tSenha,
         validator: _validateSenha,
         obscureText: true,
-        keyboardType: TextInputType.text,
+        keyboardType: TextInputType.number,
         style: TextStyle(color: Colors.black),
         decoration: InputDecoration(
-          // border: InputBorder.none,
+            // border: InputBorder.none,
             icon: Icon(
               Icons.vpn_key,
               color: Colors.grey,
@@ -135,27 +136,31 @@ class TLogin extends StatelessWidget {
       return;
     }
 
-    String login = _tLogin.text == "55555" ? "macoratti@yahoo.com" : "errado";
+    String login = Valores.ehAluno(_tLogin.text) ? "macoratti@yahoo.com" : "errado";
     String senha = _tSenha.text == "333" ? "Hw8vup5e@2019" : "errado";
 
     print("Login: $login , Senha: $senha");
 
     var response = await LoginApi.login(login, senha);
-    if (response) {
+    if (response != null) {
+      Valores.matriculaAlunoLogado = int.parse(_tLogin.text);
       _navegatorHomePage(context);
-    }else{
+    } else {
       showDialog(
           context: context,
-          builder:(BuildContext context) {
+          builder: (BuildContext context) {
             return AlertDialog(
-              title: Text("Login inválido"),
-              actions: [FlatButton(
-                child: Text("OK"),
-                onPressed: () => Navigator.pop(context, TLogin),
-              )],
+              title: Text("Login inválido!"),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              actions: [
+                FlatButton(
+                  child: Text("OK"),
+                  onPressed: () => Navigator.pop(context, TLogin),
+                )
+              ],
             );
-          }
-      );
+          });
     }
   }
 

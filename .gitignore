@@ -80,9 +80,9 @@
 /pubspec.lock
 /.flutter-plugins-dependencies
 /ios/Runner.xcworkspace/contents.xcworkspacedata
-/ios/Flutter/Debug.xcconfig
+/ios/Runner.xcodeproj/project.pbxproj
+/ios/Flutter/Release.xcconfig
 /ios/Flutter/Flutter.podspec
 /ios/Podfile
 /ios/Podfile.lock
-/ios/Runner.xcodeproj/project.pbxproj
-/ios/Flutter/Release.xcconfig
+/ios/Flutter/Debug.xcconfig

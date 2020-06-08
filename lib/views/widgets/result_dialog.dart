@@ -7,12 +7,20 @@ class ResultDialog {
     @required Questao question,
     @required bool correct,
     @required Function onNext,
-  }) {
+  }) 
+  {
+ Future<bool> _onBackPressed() {
+  return null;
+}
     return showDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (context) {
-        return AlertDialog(
+        
+        return WillPopScope(
+    onWillPop: _onBackPressed,
+    child: new  AlertDialog(
+          
           backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
@@ -31,7 +39,7 @@ class ResultDialog {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                question.question,
+                question.pergunta,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -48,7 +56,7 @@ class ResultDialog {
                 ),
               ),
               Text(
-                question.resposta,
+                question.respostaCorreta,
                 style: TextStyle(
                   color: Colors.grey.shade700,
                 ),
@@ -65,7 +73,7 @@ class ResultDialog {
               color: Colors.deepPurple,
             )
           ],
-        );
+        ));
       },
     );
   }
