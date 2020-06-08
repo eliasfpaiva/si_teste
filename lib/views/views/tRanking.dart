@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:si_teste/views/widgets/components.dart';
 import 'package:si_teste/services/rankingApi.dart';
-import 'package:si_teste/views/widgets/drawer.dart';
 
 class TRanking extends StatefulWidget {
   @override
